@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>多图样式迁移</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        .container {
+            width: 100%;
+        }
+        .div1 {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 90px;
+            background-color: white;
+            margin: 10px 0;
+        }
+        .div2 {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 600px;
+            margin: 10px 0;
+            background-color: rgba(211, 211, 211, 0.5);
+        }
+        .div3 {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 900px;
+            background-color: white;
+            margin: 10px 0;
+        }
+        .div4 {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 1000px;
+            margin: 10px 0;
+            background-color: rgba(211, 211, 211, 0.5);
+            position: relative;
+        }
+        .div5 {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 1500px;
+            background-color: white;
+            margin: 10px 0;
+            position: relative;
+        }
+        .div6 {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 1000px;
+            margin: 10px 0;
+            background-color: rgba(211, 211, 211, 0.5);
+            position: relative;
+        }
+        .div7 {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 1500px;
+            background-color: white;
+            margin: 10px 0;
+            position: relative;
+        }
+        .div8 {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100px;
+            margin: 10px 0;
+            background-color: rgba(211, 211, 211, 0.5);
+            position: relative;
+        }
+        .title {
+            font-size: 44px;
+            font-family: 'Roboto', sans-serif;
+        }
+        .author {
+            font-size: 18px;
+            color: #007BFF;
+            font-weight: 400;
+            margin: 5px 0;
+        }
+        .author a {
+            text-decoration: none;
+            color: #007BFF;
+        }
+        .author a:hover {
+            text-decoration: underline;
+        }
+        .affiliation {
+            font-size: 20px;
+            color: black;
+            margin-top: 5px;
+        }
+        sup {
+            color: black;
+        }
+        .Abstract {
+            font-size: 36px;
+            font-weight: 550;
+            margin: 5px 0;
+        }
+        .Abstract-content {
+            margin-top: 1px;
+            line-height: 1.6;
+        }
+        .method {
+            font-size: 36px;
+            font-weight: 550;
+            margin-top: 30px;
+        }
+        .method-explain {
+            margin-top: 20px;
+            line-height: 1.6;
+        }
+        .result {
+            font-size: 36px;
+            font-weight: 550;
+            margin-top: 30px;
+        }
+        .qualitative-compare {
+            font-size: 36px;
+            font-weight: 550;
+            margin-top: 30px;
+        }
+        .quantitative-compare {
+            font-size: 36px;
+            font-weight: 550;
+            margin-top: 30px;
+        }
+        .more-information{
+            font-size: 36px;
+            font-weight: 550;
+            margin-top: 30px;
+        }
+        .license {
+            font-size: 20px;
+            color: black;
+            margin-top: 5px;
+        }
+        #carousel, #carousel2 {
+            position: relative;
+            width: 800px;
+            height: 800px;
+            overflow: hidden;
+        }
+        .carousel-item {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+        .carousel-item.active {
+            opacity: 1;
+        }
+        .button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: white;
+            border: 2px solid rgba(0, 0, 0, 0.2);
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+            cursor: pointer;
+            transition: background-color 0.3s;
+            z-index: 10;
+        }
+
+        #prev, #prev2 {
+            left: 10px;
+        }
+
+        #next, #next2 {
+            right: 10px;
+        }
+
+        .carousel-indicators {
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+        }
+
+        .indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: black;
+            margin: 0 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .indicator.active {
+            background-color: gray;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="div1">
+            <h1 class="title">多图样式迁移</h1>
+        </div>
+        <div class="div1">
+            <p class="author">
+                <a href="asadasd" target="_blank">Boyu He</a><sup>1</sup>,
+                <a href="asadasd" target="_blank">Yunfan Ye</a><sup>1</sup>,
+                <a href="asadasd" target="_blank">Zhiping Cai</a><sup>*</sup>
+            </p>
+            <p class="affiliation"><sup>1</sup>国防科技大学</p>
+        </div>
+        <div class="div2">
+            <p class="Abstract">摘要</p>
+            <p class="Abstract-content">这是摘要内容示例。</p>
+        </div>
+        <div class="div3">
+            <p class="method">方法</p>
+            <img src="images/method/1.png" alt="方法描述" class="method-image">
+            <p class="method-explain">这是方法的详细说明。</p>
+        </div>
+        <div class="div4">
+            <p class="result">结果展示</p>
+            <div class="relative w-full max-w-md mx-auto">
+                <div id="carousel" class="overflow-hidden relative">
+                    <div class="carousel-inner">
+                        <img src="images/result/1.png" alt="图片 1" class="carousel-item active" />
+                        <img src="images/result/2.png" alt="图片 2" class="carousel-item" />
+                        <img src="images/result/3.png" alt="图片 3" class="carousel-item" />
+                    </div>
+                </div>
+                <button id="prev" class="button">❮</button>
+                <button id="next" class="button">❯</button>
+            </div>
+            <div class="carousel-indicators">
+                <span class="indicator active" data-index="0"></span>
+                <span class="indicator" data-index="1"></span>
+                <span class="indicator" data-index="2"></span>
+            </div>
+        </div>
+        <div class="div5">
+            <p class="qualitative-compare">定性比较</p>
+            <div class="relative w-full max-w-md mx-auto">
+                <div id="carousel2" class="overflow-hidden relative">
+                    <div class="carousel-inner">
+                        <img src="images/result/1.png" alt="图片 4" class="carousel-item active" />
+                        <img src="images/result/2.png" alt="图片 5" class="carousel-item" />
+                        <img src="images/result/3.png" alt="图片 6" class="carousel-item" />
+                    </div>
+                </div>
+                <button id="prev2" class="button">❮</button>
+                <button id="next2" class="button">❯</button>
+            </div>
+            <div class="carousel-indicators">
+                <span class="indicator active" data-index="0"></span>
+                <span class="indicator" data-index="1"></span>
+                <span class="indicator" data-index="2"></span>
+            </div>
+            <p class="qualitative-compare" style="margin-top: 100px">用户喜好</p>
+        </div>
+        <div class="div6">
+            <p class="quantitative-compare">定量比较</p>
+        </div>
+        <div class="div7">
+            <p class="more-information">More Information</p>
+        </div>
+        <div class="div8">
+            <p class="license">This website is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License. This means you are free to borrow the source code of this website, we just ask that you link back to this page in the footer. Please remember to remove the analytics code included in the header of the website which you do not want on your website.</p>
+        </div>
+    </div>
+
+    <script>
+        // 第一个轮播图功能
+        const images = document.querySelectorAll('#carousel img');
+        const indicators = document.querySelectorAll('#carousel .indicator');
+        let currentIndex = 0;
+
+        function showImage(index) {
+            images.forEach((img, i) => {
+                img.classList.remove('active');
+                if (i === index) {
+                    img.classList.add('active');
+                }
+            });
+            updateIndicators();
+        }
+
+        function updateIndicators() {
+            indicators.forEach((indicator, i) => {
+                indicator.classList.toggle('active', i === currentIndex);
+            });
+        }
+
+        document.getElementById('next').addEventListener('click', () => {
+            currentIndex = (currentIndex + 1) % images.length;
+            showImage(currentIndex);
+        });
+
+        document.getElementById('prev').addEventListener('click', () => {
+            currentIndex = (currentIndex - 1 + images.length) % images.length;
+            showImage(currentIndex);
+        });
+
+        indicators.forEach(indicator => {
+            indicator.addEventListener('click', () => {
+                currentIndex = parseInt(indicator.getAttribute('data-index'));
+                showImage(currentIndex);
+            });
+        });
+
+        setInterval(() => {
+            currentIndex = (currentIndex + 1) % images.length;
+            showImage(currentIndex);
+        }, 5000);
+
+        // 第二个轮播图功能
+        const images2 = document.querySelectorAll('#carousel2 img');
+        const indicators2 = document.querySelectorAll('#carousel2 .indicator');
+        let currentIndex2 = 0;
+
+        function showImage2(index) {
+            images2.forEach((img, i) => {
+                img.classList.remove('active');
+                if (i === index) {
+                    img.classList.add('active');
+                }
+            });
+            updateIndicators2();
+        }
+
+        function updateIndicators2() {
+            indicators2.forEach((indicator, i) => {
+                indicator.classList.toggle('active', i === currentIndex2);
+            });
+        }
+
+        document.getElementById('next2').addEventListener('click', () => {
+            currentIndex2 = (currentIndex2 + 1) % images2.length;
+            showImage2(currentIndex2);
+        });
+
+        document.getElementById('prev2').addEventListener('click', () => {
+            currentIndex2 = (currentIndex2 - 1 + images2.length) % images2.length;
+            showImage2(currentIndex2);
+        });
+
+        indicators2.forEach(indicator => {
+            indicator.addEventListener('click', () => {
+                currentIndex2 = parseInt(indicator.getAttribute('data-index'));
+                showImage2(currentIndex2);
+            });
+        });
+
+        setInterval(() => {
+            currentIndex2 = (currentIndex2 + 1) % images2.length;
+            showImage2(currentIndex2);
+        }, 5000);
+    </script>
+</body>
+</html>
